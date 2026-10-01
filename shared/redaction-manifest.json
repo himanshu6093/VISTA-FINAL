@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VISTA Redaction Manifest (client -> server, alongside redacted image)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["token", "bbox"],
+    "properties": {
+      "token": {
+        "enum": [
+          "<FACE_HIDDEN>",
+          "<NAME_HIDDEN>",
+          "<HANDLE_HIDDEN>",
+          "<ADDRESS_HIDDEN>",
+          "<PHONE_HIDDEN>",
+          "<EMAIL_HIDDEN>",
+          "<ID_HIDDEN>"
+        ]
+      },
+      "bbox": {
+        "type": "object",
+        "required": ["x", "y", "width", "height"],
+        "properties": {
+          "x": { "type": "number" },
+          "y": { "type": "number" },
+          "width": { "type": "number" },
+          "height": { "type": "number" }
+        }
+      },
+      "source": { "enum": ["face", "ocr+pii", "dom"] },
+      "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+    }
+  }
+}

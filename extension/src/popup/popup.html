@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VISTA Agent</title>
+  <link rel="stylesheet" href="./popup.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="badge">V.I.S.T.A.</span><span class="ver">v0.3 phase3</span>
+      <h1>Privacy Browser Agent</h1>
+      <p class="sub">DOM fast-path + redacted-vision slow-path</p>
+    </header>
+    <label class="lbl">Server
+      <input id="serverUrl" value="http://127.0.0.1:8000">
+    </label>
+    <label class="lbl">Goal
+      <textarea id="goal" rows="3" placeholder="e.g. Click Continue under Payment without revealing my address"></textarea>
+    </label>
+    <div class="row2">
+      <label class="lbl">Mode
+        <select id="visionMode">
+          <option value="auto" selected>auto (ContextEvaluator)</option>
+          <option value="dom-only">dom-only</option>
+          <option value="vision-only">vision-only</option>
+        </select>
+      </label>
+      <label class="lbl">Max steps
+        <input id="maxSteps" type="number" value="5" min="1" max="10">
+      </label>
+    </div>
+    <div class="row">
+      <button id="run">Run 1 step</button>
+      <button id="loop">Run loop</button>
+    </div>
+    <div class="row">
+      <button id="stop" class="btn-warn">Stop</button>
+      <button id="health" class="btn-ghost">Health</button>
+      <button id="diagnose" class="btn-ghost">Diagnose</button>
+    </div>
+    <div id="status" aria-live="polite"></div>
+
+    <section class="card hidden" id="diag-card">
+      <div class="card-title">Pre-flight diagnostics</div>
+      <ul id="diag"></ul>
+    </section>
+
+    <section class="card" id="model-card">
+      <div class="card-title">On-device models <span id="model-status" class="pill">unknown</span></div>
+      <div class="row">
+        <button id="preload" class="btn-ghost">Preload (~30MB)</button>
+        <button id="clearModels" class="btn-ghost">Clear space</button>
+      </div>
+    </section>
+
+    <section class="card hidden" id="preview-card">
+      <div class="card-title">Vision redaction preview</div>
+      <div class="shots">
+        <figure><img id="shot-before" alt="original screenshot (device only)"><figcaption>BEFORE — device only, never uploaded</figcaption></figure>
+        <figure><img id="shot-after" alt="redacted screenshot (sent to server)"><figcaption>AFTER — this is what the server received</figcaption></figure>
+      </div>
+      <div id="manifest" class="mono"></div>
+    </section>
+
+    <section class="card hidden" id="trail-card">
+      <div class="card-title">Run trail</div>
+      <ol id="trail"></ol>
+    </section>
+
+    <pre id="out">[]</pre>
+    <details><summary>Privacy audit (what left the browser)</summary>
+      <pre id="audit">nothing sent yet</pre>
+    </details>
+  </div>
+  <script type="module" src="./popup.js"></script>
+</body>
+</html>

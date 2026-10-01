@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+.venv/
+# Secrets (API keys for cloud VLM providers)
+.env
+server/.env
+# Extension models (never commit weights; lazy-fetch to CacheStorage)
+extension/src/offscreen/vision/models/
+*.onnx
+*.ort
+*.bin
+# Vendored JS runtimes (derived via extension/src/offscreen/vendor/README.md)
+extension/src/offscreen/vendor/
+# Submission zips (rebuilt via tools/package-store.ps1)
+dist/
+# Temp import scanner
+scan-imports.mjs
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

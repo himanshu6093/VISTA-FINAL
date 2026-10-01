@@ -1,0 +1,8 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+requests>=2.31  # Phase 2: Ollama HTTP planner (VLM_ENABLED=1)
+# Optional local-VLM alternatives (not needed for default Ollama path):
+# ollama>=0.4
+# transformers>=4.44
+# torch --index-url https://download.pytorch.org/whl/cpu

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "e42",
+    "tag": "button",
+    "role": "button",
+    "name": "Continue",
+    "nameSource": "visible-text",
+    "text": "Continue",
+    "context": { "section": "Payment Information" },
+    "visible": true,
+    "enabled": true,
+    "disabled": false,
+    "interactive": true,
+    "bbox": { "x": 500, "y": 620, "width": 180, "height": 48 }
+  },
+  {
+    "id": "e7",
+    "tag": "input",
+    "role": "textbox",
+    "name": "Email",
+    "type": "email",
+    "value_present": true,
+    "text": "",
+    "context": { "form": "Checkout" },
+    "visible": true,
+    "enabled": true,
+    "interactive": true,
+    "bbox": { "x": 500, "y": 400, "width": 300, "height": 40 }
+  }
+]

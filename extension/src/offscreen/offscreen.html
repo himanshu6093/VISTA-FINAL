@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>VISTA Offscreen — vision sandbox</title>
+<!--
+  Phase 1b: fully OFFLINE import map. All runtimes vendored under ./vendor/
+  (gitignored, reproducible via vendor/README.md). No remote code, no CDN —
+  Web Store compliant and SIH-demo safe.
+    onnxruntime-web 1.29.0  -> vendor/ort/ort.bundle.min.mjs (+ local .wasm)
+    onnxruntime-web/webgpu  -> vendor/ort/ort.webgpu.bundle.min.mjs (transformers opt.)
+    onnxruntime-common      -> vendor/ort-common/index.js (transformers dep)
+    ppu-paddle-ocr/web      -> vendor/paddle/web/index.js (+ core/, processor-free)
+    ppu-ocv/canvas-web      -> vendor/ppu-ocv/index.canvas-web.js
+    jsqr                    -> vendor/jsqr/jsqr.mjs (UMD wrapper)
+    @huggingface/transformers -> vendor/transformers/transformers.web.min.js
+  Model weights live in vision/models/ (gitignored, SHA256-verified copies
+  from the VISTA repo): YuNet 232KB, PP-OCRv6 Tiny ~6.3MB, MiniLM-L6 ~22.6MB.
+-->
+<script type="importmap">
+{
+  "imports": {
+    "onnxruntime-web": "./vendor/ort/ort.bundle.min.mjs",
+    "onnxruntime-web/webgpu": "./vendor/ort/ort.webgpu.bundle.min.mjs",
+    "onnxruntime-common": "./vendor/ort-common/index.js",
+    "ppu-paddle-ocr/web": "./vendor/paddle/web/index.js",
+    "ppu-ocv/canvas-web": "./vendor/ppu-ocv/index.canvas-web.js",
+    "jsqr": "./vendor/jsqr/jsqr.mjs",
+    "@huggingface/transformers": "./vendor/transformers/transformers.web.min.js"
+  }
+}
+</script>
+</head>
+<body>
+<script type="module" src="./offscreen.js"></script>
+</body>
+</html>

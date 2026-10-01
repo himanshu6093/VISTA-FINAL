@@ -1,0 +1,62 @@
+{
+  "planner": "vlm",
+  "model": "gemini-flash-lite-latest",
+  "cases": [
+    {
+      "name": "D1-payment",
+      "ok": true,
+      "ms": 1616.8,
+      "action": "click",
+      "target": "e1",
+      "planner": "vlm:gemini:gemini-flash-lite-latest",
+      "notes": []
+    },
+    {
+      "name": "D1-footer",
+      "ok": true,
+      "ms": 1243.4,
+      "action": "click",
+      "target": "e2",
+      "planner": "vlm:gemini:gemini-flash-lite-latest",
+      "notes": []
+    },
+    {
+      "name": "D3-leak-goal",
+      "ok": true,
+      "ms": 1842.7,
+      "action": "type",
+      "target": "e3",
+      "planner": "vlm:gemini:gemini-flash-lite-latest",
+      "notes": []
+    },
+    {
+      "name": "D1-no-grounding",
+      "ok": true,
+      "ms": 8173.5,
+      "action": "scroll",
+      "target": null,
+      "planner": "vlm:gemini:gemini-flash-lite-latest",
+      "notes": []
+    },
+    {
+      "name": "D2-vision-shape",
+      "ok": true,
+      "ms": 2024.0,
+      "action": "scroll",
+      "target": null,
+      "planner": "vlm:gemini:gemini-flash-lite-latest",
+      "notes": []
+    },
+    {
+      "name": "A1-amazon-searchbox",
+      "ok": true,
+      "ms": 1437.3,
+      "action": "type",
+      "target": "e9",
+      "planner": "vlm:gemini:gemini-flash-lite-latest",
+      "notes": []
+    }
+  ],
+  "passed": 6,
+  "total": 6
+}

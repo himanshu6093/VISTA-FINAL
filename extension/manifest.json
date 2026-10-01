@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "VISTA — Privacy-Preserving Browser Agent (Phase 3)",
+  "version": "0.3.0",
+  "description": "Local vision + semantic DOM agent. DOM-only fast path + redacted-vision slow path. Zero raw PII leaves the browser.",
+  "minimum_chrome_version": "116",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "vista-privacy-agent@example.local",
+      "strict_min_version": "121.0"
+    }
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "VISTA Agent"
+  },
+  "background": {
+    "service_worker": "src/background/orchestrator.js",
+    "type": "module"
+  },
+  "permissions": ["activeTab", "scripting", "tabs", "offscreen", "storage"],
+  "optional_permissions": ["debugger"],
+  "host_permissions": [
+    "<all_urls>",
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*",
+    "https://huggingface.co/*",
+    "https://raw.githubusercontent.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/semanticDom.js", "src/content/actuator.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/offscreen/offscreen.html", "src/offscreen/vision/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; connect-src 'self' https://huggingface.co https://*.huggingface.co https://raw.githubusercontent.com http://127.0.0.1:8000 http://localhost:8000;"
+  }
+}

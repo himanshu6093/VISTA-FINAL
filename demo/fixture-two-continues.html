@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VISTA Demo — Checkout</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; }
+  section, footer { border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+  label { display: block; margin: .5rem 0 .2rem; }
+  input { padding: .5rem; width: 100%; max-width: 320px; box-sizing: border-box; }
+  button { padding: .6rem 1.2rem; margin-top: .8rem; cursor: pointer; }
+</style>
+</head>
+<body>
+  <h1>Demo Checkout</h1>
+
+  <section aria-label="Payment Information">
+    <h2>Payment Information</h2>
+    <form id="payment-form">
+      <label for="card">Card number</label>
+      <input id="card" type="text" placeholder="4111 1111 1111 1111" value="4111111111111111">
+      <label for="pwd">Password</label>
+      <input id="pwd" type="password" aria-label="Password" value="s3cret-demo-only">
+      <br>
+      <button type="button">Continue</button>
+    </form>
+  </section>
+
+  <section aria-label="Newsletter">
+    <h2>Newsletter</h2>
+    <form id="newsletter-form">
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="you@example.com" value="friend@example.com">
+      <br>
+      <button type="button">Subscribe</button>
+    </form>
+  </section>
+
+  <footer aria-label="Footer">
+    <button type="button">Continue</button>
+  </footer>
+
+  <p><small>Local fixture for VISTA D1 (disambiguated click) + D3 (password never leaks).
+  Serve via <code>python -m http.server</code> or open directly (enable file-URL access for the extension).</small></p>
+</body>
+</html>
